@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Alerts Screen</title>
+    <link href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBarPFnh4jyDQp0X_XujJRAPSLAgeku3iA" async defer></script>
+    <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet.gridlayer.googlemutant@latest/Leaflet.GoogleMutant.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            window.map = L.map("map").setView([-33.75, 150.70], 11);
+
+            let lastRFS
+
+            let get = (url, cb) => $.getJSON(url, cb);
+
+            let set = (data) => {
+                if (lastRFS) map.removeLayer(lastRFS);
+
+                let rfs = L.geoJSON(data, {
+                    pointToLayer: function (feature, pos) {
+                        let levels = {
+                            "Not Applicable": fire_0,
+                            "Advice": fire_1,
+                            "Watch and Act": fire_2,
+                            "Emergency Warning": fire_3
+                        }
+
+                        return L.marker(pos, { icon: levels[feature.properties.category] });
+                    },
+                    onEachFeature: (feature, layer) => {
+                        layer.bindPopup(feature.properties.description);
+                    },
+                    style: {
+                        color: "#333333"
+                    }
+                }).addTo(map);
+
+
+                lastRFS = rfs;
+            };
+
+            let google = L.gridLayer.googleMutant({
+                type: "roadmap",
+                styles: [ ]
+            }).addTo(map);
+
+            let fire_0 = L.icon({ iconUrl: "icons/0.png", iconSize: [30, 30], popupAnchor: [0, -17] });
+            let fire_1 = L.icon({ iconUrl: "icons/1.png", iconSize: [30, 30], popupAnchor: [0, -17] });
+            let fire_2 = L.icon({ iconUrl: "icons/2.png", iconSize: [30, 30], popupAnchor: [0, -17] });
+            let fire_3 = L.icon({ iconUrl: "icons/3.png", iconSize: [30, 30], popupAnchor: [0, -17] });
+
+            setInterval(() => {
+                get("https://crossorigin.me/http://www.rfs.nsw.gov.au/feeds/majorIncidents.json", set);
+            }, 1 * 60 * 1000);
+            get("https://crossorigin.me/http://www.rfs.nsw.gov.au/feeds/majorIncidents.json", set);
+
+        });
+
+    </script>
+    <style>
+
+        body {
+            margin: 0;
+        }
+
+        #map {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .leaflet-control-attribution,
+        .gmnoprint,
+        .gm-style-cc {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+     <div id="map"></div>
+
+</body>
+</html>
