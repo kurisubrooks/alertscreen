@@ -16,6 +16,8 @@
             window.map = L.map("map").setView([-33.75, 150.70], 11);
 
             let lastRFS
+            let alertArea
+            let emergencyArea
 
             let get = (url, cb) => $.getJSON(url, cb);
 
@@ -58,6 +60,27 @@
             setInterval(() => {
                 get("https://crossorigin.me/http://www.rfs.nsw.gov.au/feeds/majorIncidents.json", set);
             }, 1 * 60 * 1000);
+
+            get("./alertArea.geojson", (data) => alertArea = L.geoJSON(data, {
+                style: {
+                    fillColor: "transparent",
+                    color: "rgba(0, 0, 0, 0.3)"
+                },
+                onEachFeature: (feature, layer) => {
+                    layer.bindPopup("Local Warning Area");
+                }
+            }).addTo(map));
+
+            get("./emergencyArea.geojson", (data) => emergencyArea = L.geoJSON(data, {
+                style: {
+                    fillColor: "transparent",
+                    color: "rgba(255, 0, 0, 0.3)"
+                },
+                onEachFeature: (feature, layer) => {
+                    layer.bindPopup("Emergency Warning Area");
+                }
+            }).addTo(map));
+
             get("https://crossorigin.me/http://www.rfs.nsw.gov.au/feeds/majorIncidents.json", set);
 
         });
