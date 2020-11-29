@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <clipPath id="clip-Other">
+      <rect width="32" height="32"/>
+    </clipPath>
+  </defs>
+  <g id="Other" clip-path="url(#clip-Other)">
+    <g id="Group_4" data-name="Group 4" transform="translate(0 1.264)">
+      <path id="Polygon_1" data-name="Polygon 1" d="M16,0,32,27H0Z" transform="translate(0 0.736)" fill="#fff"/>
+      <path id="Subtraction_1" data-name="Subtraction 1" d="M32,27H0L16,0,32,27ZM16,4.725,4,24.75H28Z" transform="translate(0 0.736)"/>
+    </g>
+    <path id="Path_17" data-name="Path 17" d="M39.237,37.987A1.235,1.235,0,1,1,38,36.752,1.235,1.235,0,0,1,39.237,37.987Zm1.556-9.553a3.861,3.861,0,0,0-2.591-.89,3.789,3.789,0,0,0-2.564.905,4.647,4.647,0,0,0-1.292,2.865l.1.21h2.077c.164-.773.666-1.857,1.514-1.857a1.217,1.217,0,0,1,.89.234,1.061,1.061,0,0,1,.367.86,1.382,1.382,0,0,1-.2.76,2.648,2.648,0,0,1-.695.671,4.367,4.367,0,0,0-1.137,1.136,3.136,3.136,0,0,0-.434,1.717V35.9H39.02a3.581,3.581,0,0,1,.218-1.3,2.662,2.662,0,0,1,.859-.937,3.435,3.435,0,0,0,1.741-2.9A2.973,2.973,0,0,0,40.792,28.435Z" transform="translate(-22.082 -13.795)"/>
+  </g>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <clipPath id="clip-Vehicle">
+      <rect width="32" height="32"/>
+    </clipPath>
+  </defs>
+  <g id="Vehicle" clip-path="url(#clip-Vehicle)">
+    <g id="Group_4" data-name="Group 4" transform="translate(0 1.264)">
+      <path id="Polygon_1" data-name="Polygon 1" d="M16,0,32,27H0Z" transform="translate(0 0.736)" fill="#fff"/>
+      <path id="Subtraction_1" data-name="Subtraction 1" d="M32,27H0L16,0,32,27ZM16,4.725,4,24.75H28Z" transform="translate(0 0.736)"/>
+    </g>
+    <path id="Path_18" data-name="Path 18" d="M12.586,5.671A.993.993,0,0,0,11.642,5H5.326a1,1,0,0,0-.944.671L3,9.652v5.317a.667.667,0,0,0,.665.665h.665a.667.667,0,0,0,.665-.665V14.3h6.981v.665a.667.667,0,0,0,.665.665H13.3a.667.667,0,0,0,.665-.665V9.652Zm-7.26,6.639a1,1,0,1,1,1-1A1,1,0,0,1,5.326,12.311Zm6.316,0a1,1,0,1,1,1-1A1,1,0,0,1,11.642,12.311ZM5,8.988,5.77,6.453h5.35l.727,2.534Z" transform="translate(7.516 10.5)"/>
+  </g>
+</svg>

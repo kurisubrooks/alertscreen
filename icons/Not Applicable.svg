@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <clipPath id="clip-Not_Applicable">
+      <rect width="32" height="32"/>
+    </clipPath>
+  </defs>
+  <g id="Not_Applicable" data-name="Not Applicable" clip-path="url(#clip-Not_Applicable)">
+    <g id="Group_4" data-name="Group 4" transform="translate(0 1.264)">
+      <path id="Polygon_1" data-name="Polygon 1" d="M16,0,32,27H0Z" transform="translate(0 0.736)" fill="#fff"/>
+      <path id="Subtraction_1" data-name="Subtraction 1" d="M32,27H0L16,0,32,27ZM16,4.725,4,24.75H28Z" transform="translate(0 0.736)"/>
+    </g>
+  </g>
+</svg>

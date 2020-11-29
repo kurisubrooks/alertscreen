@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <clipPath id="clip-Hazard">
+      <rect width="32" height="32"/>
+    </clipPath>
+  </defs>
+  <g id="Hazard" clip-path="url(#clip-Hazard)">
+    <g id="Group_4" data-name="Group 4" transform="translate(0 1.264)">
+      <path id="Polygon_1" data-name="Polygon 1" d="M16,0,32,27H0Z" transform="translate(0 0.736)" fill="#fff"/>
+      <path id="Subtraction_1" data-name="Subtraction 1" d="M32,27H0L16,0,32,27ZM16,4.725,4,24.75H28Z" transform="translate(0 0.736)"/>
+    </g>
+    <g id="Group_14" data-name="Group 14" transform="translate(0 -1.349)">
+      <path id="Path_48" data-name="Path 48" d="M8.852,7.049V6.773A2.225,2.225,0,0,0,7.814,3.659c-.138-.069-.138-.069-.138-.208A2.843,2.843,0,0,0,2.9.822c-.069.069-.138.069-.277.069a2,2,0,0,0-2.283.83,2,2,0,0,0,.277,2.56L3.04,6.7,5.462,9.125a.955.955,0,0,0,.277.208A1.982,1.982,0,0,0,8.23,9.264a2.016,2.016,0,0,0,.623-2.214Z" transform="translate(11 17.115) rotate(-16)"/>
+      <path id="Path_49" data-name="Path 49" d="M1.338,2.729.25,1.662,2.12,0,3.275,1.154Z" transform="translate(13.097 22.62) rotate(-16)"/>
+      <path id="Path_50" data-name="Path 50" d="M1.86,2.419.869,1.426,2.282.161l.992.992Z" transform="translate(11.9 27.164) rotate(-45)"/>
+    </g>
+  </g>
+</svg>

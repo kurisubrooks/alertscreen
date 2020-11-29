@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <clipPath id="clip-HAZMAT">
+      <rect width="32" height="32"/>
+    </clipPath>
+  </defs>
+  <g id="HAZMAT" clip-path="url(#clip-HAZMAT)">
+    <g id="Group_4" data-name="Group 4" transform="translate(0 1.264)">
+      <path id="Polygon_1" data-name="Polygon 1" d="M16,0,32,27H0Z" transform="translate(0 0.736)" fill="#fff"/>
+      <path id="Subtraction_1" data-name="Subtraction 1" d="M32,27H0L16,0,32,27ZM16,4.725,4,24.75H28Z" transform="translate(0 0.736)"/>
+    </g>
+    <path id="Path_45" data-name="Path 45" d="M160.235,103.671s3.7.036,3.861.054a5.673,5.673,0,0,0-2.823-4.844l-1.912,3.36A1.566,1.566,0,0,1,160.235,103.671Zm-2.467,1.394s-1.894,3.236-1.983,3.36a5.658,5.658,0,0,0,5.613-.053l-1.931-3.36A1.579,1.579,0,0,1,157.768,105.065Zm.018-2.823s-1.823-3.253-1.912-3.379a5.65,5.65,0,0,0-2.771,4.862h3.879a1.6,1.6,0,0,1,.8-1.484" transform="translate(-142.636 -83.363)" fill="#020202"/>
+    <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(14.75 19)" fill="#020202" stroke="#fff" stroke-width="0.76">
+      <circle cx="1.25" cy="1.25" r="1.25" stroke="none"/>
+      <circle cx="1.25" cy="1.25" r="1.63" fill="none"/>
+    </g>
+  </g>
+</svg>

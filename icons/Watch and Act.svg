@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <clipPath id="clip-Watch_and_Act">
+      <rect width="32" height="32"/>
+    </clipPath>
+  </defs>
+  <g id="Watch_and_Act" data-name="Watch and Act" clip-path="url(#clip-Watch_and_Act)">
+    <g id="Group_2" data-name="Group 2" transform="translate(0 2.298)">
+      <path id="Polygon_1" data-name="Polygon 1" d="M16,0,32,27H0Z" transform="translate(0 -0.298)" fill="#ff8402"/>
+      <path id="Subtraction_1" data-name="Subtraction 1" d="M32,27H0L16,0,32,27ZM16,4.725,4,24.75H28Z" transform="translate(0 -0.298)"/>
+    </g>
+    <path id="Path_9" data-name="Path 9" d="M88.585,109.93s-.567,4.489,2.548,2.774c0,0,1.841,1.768,2.061,3.31,0,0,.809,4.661-3.845,5.907a4.8,4.8,0,0,0-.643-2.68,2.068,2.068,0,0,1-.068-2.1s-2.721.663-2.051,3.161l.578,1.556a6.606,6.606,0,0,1-3.721-2.808c-.728-1.171-1.426-3.925.427-5.778a1.441,1.441,0,0,0,.687,1.288C84.558,110.878,88.585,109.93,88.585,109.93Z" transform="translate(-72.031 -96.43)"/>
+  </g>
+</svg>

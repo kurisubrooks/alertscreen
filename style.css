@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+#map {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+#map:focus,
+.mapboxgl-canvas:focus {
+  outline: none;
+}
+
+.mapboxgl-ctrl-attrib-inner {
+  display: none;
+}
+
+.container {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  margin: 10px;
+}
+
+.box {
+  background: #FFF;
+  border-radius: 5px;
+  padding: 10px 18px;
+  margin-bottom: 10px;
+  box-shadow: 0 0 0 2px rgba(0,0,0,.1);
+  user-select: none;
+}
+
+.box h3 {
+  font-size: 18px;
+  margin: 4px 0 12px;
+  font-weight: 500;
+}
+
+.box > .item {
+  display: flex;
+}
+
+.box > .item .icon {
+  margin-right: 8px;
+}
+
+.box img {
+  -webkit-user-drag: none;
+}
+
+.box > .item .key {
+  align-self: center;
+}
+
+.box .active {
+  display: flex;
+  justify-content: space-between;
+}
+
+.box .active .item .value {
+  text-align: center;
+}
+
+.controls {
+  box-shadow: 0 0 0 2px rgba(0,0,0,.1);
+  margin: 10px;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.controls button {
+  width: 29px;
+  height: 29px;
+}

@@ -1,116 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alerts Screen</title>
-    <link href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" rel="stylesheet">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBarPFnh4jyDQp0X_XujJRAPSLAgeku3iA" async defer></script>
-    <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
-    <script src="https://unpkg.com/leaflet.gridlayer.googlemutant@latest/Leaflet.GoogleMutant.js"></script>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script>
-
-        document.addEventListener("DOMContentLoaded", () => {
-
-            window.map = L.map("map").setView([-33.75, 150.70], 11);
-
-            let lastRFS
-            let alertArea
-            let emergencyArea
-
-            let get = (url, cb) => $.getJSON(url, cb);
-
-            let set = (data) => {
-                if (lastRFS) map.removeLayer(lastRFS);
-
-                let rfs = L.geoJSON(data, {
-                    pointToLayer: function (feature, pos) {
-                        let levels = {
-                            "Not Applicable": fire_0,
-                            "Advice": fire_1,
-                            "Watch and Act": fire_2,
-                            "Emergency Warning": fire_3
-                        }
-
-                        return L.marker(pos, { icon: levels[feature.properties.category] });
-                    },
-                    onEachFeature: (feature, layer) => {
-                        layer.bindPopup(feature.properties.description);
-                    },
-                    style: {
-                        color: "#333333"
-                    }
-                }).addTo(map);
-
-
-                lastRFS = rfs;
-            };
-
-            let google = L.gridLayer.googleMutant({
-                type: "roadmap",
-                styles: [{"featureType":"all","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"administrative","elementType":"all","stylers":[{"visibility":"on"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#efebe2"}]},{"featureType":"poi","elementType":"all","stylers":[{"color":"#efebe2"}]},{"featureType":"poi.attraction","elementType":"all","stylers":[{"color":"#efebe2"}]},{"featureType":"poi.business","elementType":"all","stylers":[{"color":"#efebe2"}]},{"featureType":"poi.government","elementType":"all","stylers":[{"color":"#dfdcd5"}]},{"featureType":"poi.medical","elementType":"all","stylers":[{"color":"#dfdcd5"}]},{"featureType":"poi.park","elementType":"all","stylers":[{"color":"#bad294"}]},{"featureType":"poi.place_of_worship","elementType":"all","stylers":[{"color":"#efebe2"}]},{"featureType":"poi.school","elementType":"all","stylers":[{"color":"#efebe2"}]},{"featureType":"poi.sports_complex","elementType":"all","stylers":[{"color":"#efebe2"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.arterial","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"#fbfbfb"}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#a5d7e0"}]}				]
-            }).addTo(map);
-
-            let fire_0 = L.icon({ iconUrl: "icons/0.png", iconSize: [30, 30], popupAnchor: [0, -17] });
-            let fire_1 = L.icon({ iconUrl: "icons/1.png", iconSize: [30, 30], popupAnchor: [0, -17] });
-            let fire_2 = L.icon({ iconUrl: "icons/2.png", iconSize: [30, 30], popupAnchor: [0, -17] });
-            let fire_3 = L.icon({ iconUrl: "icons/3.png", iconSize: [30, 30], popupAnchor: [0, -17] });
-
-            setInterval(() => {
-                get("https://crossorigin.me/http://www.rfs.nsw.gov.au/feeds/majorIncidents.json", set);
-            }, 1 * 60 * 1000);
-
-            get("./alertArea.geojson", (data) => alertArea = L.geoJSON(data, {
-                style: {
-                    fillColor: "transparent",
-                    color: "rgba(0, 0, 0, 0.3)"
-                },
-                onEachFeature: (feature, layer) => {
-                    layer.bindPopup("Local Warning Area");
-                }
-            }).addTo(map));
-
-            get("./emergencyArea.geojson", (data) => emergencyArea = L.geoJSON(data, {
-                style: {
-                    fillColor: "transparent",
-                    color: "rgba(255, 0, 0, 0.3)"
-                },
-                onEachFeature: (feature, layer) => {
-                    layer.bindPopup("Emergency Warning Area");
-                }
-            }).addTo(map));
-
-            get("https://crossorigin.me/http://www.rfs.nsw.gov.au/feeds/majorIncidents.json", set);
-
-        });
-
-    </script>
-    <style>
-
-        body {
-            margin: 0;
-        }
-
-        #map {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            top: 0;
-            left: 0;
-        }
-
-        .leaflet-control-attribution,
-        .gmnoprint,
-        .gm-style-cc {
-            display: none;
-        }
-
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RFS Fire Tracker</title>
+  <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@turf/turf@5.1.6/turf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/turndown@7.0.0/dist/turndown.js"></script>
+  <link href="./style.css" rel="stylesheet" />
 </head>
 <body>
 
-     <div id="map"></div>
+  <div class="controls">
+    <button v-bind:click="recenter">Center</button>
+  </div>
+
+  <div id="map"></div>
+
+  <div class="container" id="app">
+    <div class="box">
+      <h3>Warning Levels</h3>
+      <div class="item">
+        <div class="icon">
+          <img src="./icons/Not Applicable.svg"/>
+        </div>
+        <div class="key">Not Applicable</div>
+      </div>
+      <div class="item">
+        <div class="icon">
+          <img src="./icons/Advice.svg"/>
+        </div>
+        <div class="key">Advice</div>
+      </div>
+      <div class="item">
+        <div class="icon">
+          <img src="./icons/Watch and Act.svg"/>
+        </div>
+        <div class="key">Watch and Act</div>
+      </div>
+      <div class="item">
+        <div class="icon">
+          <img src="./icons/Emergency Warning.svg"/>
+        </div>
+        <div class="key">Emergency Warning</div>
+      </div>
+    </div>
+    <div class="box">
+      <h3>Active Events</h3>
+      <div class="active">
+        <div class="item">
+          <div class="icon">
+            <img src="./icons/Not Applicable.svg"/>
+          </div>
+          <div class="value">{{count.lvl0}}</div>
+        </div>
+        <div class="item">
+          <div class="icon">
+            <img src="./icons/Advice.svg"/>
+          </div>
+          <div class="value">{{count.lvl1}}</div>
+        </div>
+        <div class="item">
+          <div class="icon">
+            <img src="./icons/Watch and Act.svg"/>
+          </div>
+          <div class="value">{{count.lvl2}}</div>
+        </div>
+        <div class="item">
+          <div class="icon">
+            <img src="./icons/Emergency Warning.svg"/>
+          </div>
+          <div class="value">{{count.lvl3}}</div>
+        </div>
+      </div>
+    </div>
+    <!--<div class="box">{{status}}</div>-->
+  </div>
+
+  <script src="script.js"></script>
 
 </body>
 </html>
