@@ -1,6 +1,13 @@
 {
     "env": {
+        "es6": true,
         "browser": true
+    },
+    "globals": {
+        "mapboxgl": true,
+        "TurndownService": true,
+        "Vue": true,
+        "turf": true
     },
     "extends": "eslint:recommended",
     "rules": {
